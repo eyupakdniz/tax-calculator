@@ -61,7 +61,7 @@ Bu proje, Spring Boot ile geliştirilmiş, Spring Security, Docker, Docker Compo
 }
 ```
 
-- Vergi Oluşturmave Güncelleme
+- Vergi Oluşturma ve Güncelleme
 ```sh
 {
     "name": "tax_name",
