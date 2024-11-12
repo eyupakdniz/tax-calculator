@@ -4,12 +4,12 @@ Bu proje, Spring Boot ile geliştirilmiş, Spring Security, Docker, Docker Compo
 
 ## Özellikler
 
-- RESTful API ile CRUD işlemleri yapıldı
-- Spring Security kullanarak kullanıcının kayıt olması ve token ile endpointlere istek atması sağlandı 
-- Aynı zamanda Spring Security kullanarak product kayıt eden kullanıcının bilgileri token üzerinde alındı 
-- MongoDB ile veriler nosql ile saklandı 
-- Docker ile containerlar ayaklandırıldı ve volume ile Mongodb içinde bulunan veriler kalıcı olarak saklanmaya çalışıldı
-- Spring Test ile birim ve entegrasyon testleri
+- RESTful API ile CRUD işlemleri yapıldı.
+- Spring Security kullanarak kullanıcının kayıt olması ve token ile endpointlere istek atması sağlandı.
+- Aynı zamanda Spring Security kullanarak product kayıt eden kullanıcının bilgileri token üzerinde alındı.
+- MongoDB ile veriler nosql'de saklandı.
+- Docker ile containerlar ayaklandırıldı ve volume ile Mongodb içinde bulunan veriler kalıcı olarak saklanmaya çalışıldı.
+- Spring Test ile birim ve entegrasyon testleri yapıldı.
 
 ## Teknolojiler
 
