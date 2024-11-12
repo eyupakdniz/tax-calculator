@@ -49,7 +49,7 @@ Bu proje, Spring Boot ile geliştirilmiş, Spring Security, Docker, Docker Compo
     "password": "password_admin", 
     "firstName": "firstname_admin",
     "lastName": "lastname_admin",
-    "role": "ADMIN"
+    "role": "USER"
 }
 ```
 
