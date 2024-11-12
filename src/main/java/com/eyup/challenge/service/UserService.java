@@ -84,7 +84,7 @@ public class UserService {
 
     }
 
-    private void revokeAllTokenByUser(User user) {
+    void revokeAllTokenByUser(User user) {
         List<Token> validTokens = tokenRepository.findAllAccessTokensByUser(user.getId());
         if(validTokens.isEmpty()) {
             return;

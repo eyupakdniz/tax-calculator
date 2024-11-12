@@ -27,4 +27,5 @@ public class Token {
 
     @DBRef
     private User user;
+
 }

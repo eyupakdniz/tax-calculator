@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface TaxRepository extends MongoRepository<Tax, String> {
     Optional<Tax> findByName(String name);
+
 }

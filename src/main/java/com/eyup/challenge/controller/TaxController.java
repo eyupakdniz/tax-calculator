@@ -24,9 +24,9 @@ public class TaxController {
         return new ResponseEntity<>(taxes, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<TaxResponseDTO> getTaxById(@PathVariable String id) {
-        return taxService.getTaxById(id)
+    @GetMapping("/get/{name}")
+    public ResponseEntity<TaxResponseDTO> getTaxById(@PathVariable String name) {
+        return taxService.getTaxById(name)
                 .map(tax -> new ResponseEntity<>(tax, HttpStatus.OK)) .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND)); }
 
     @PostMapping("/create")
@@ -35,19 +35,19 @@ public class TaxController {
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<TaxResponseDTO> updateTax(@PathVariable String id, @RequestBody UpdateTaxRequestDTO tax) {
+    @PutMapping("/update/{name}")
+    public ResponseEntity<TaxResponseDTO> updateTax(@PathVariable String name, @RequestBody UpdateTaxRequestDTO tax) {
         try {
-            TaxResponseDTO updatedTax = taxService.updateTax(id, tax);
+            TaxResponseDTO updatedTax = taxService.updateTax(name, tax);
             return new ResponseEntity<>(updatedTax, HttpStatus.OK);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteTax(@PathVariable String id) {
-        taxService.deleteTax(id);
+    @DeleteMapping("/delete/{name}")
+    public ResponseEntity<Void> deleteTax(@PathVariable String name) {
+        taxService.deleteTax(name);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

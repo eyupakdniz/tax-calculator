@@ -20,4 +20,8 @@ public class Tax {
     private double rate;
 
 
+    public Tax(String tax1, double v) {
+        this.name = name;
+        this.rate = rate;
+    }
 }

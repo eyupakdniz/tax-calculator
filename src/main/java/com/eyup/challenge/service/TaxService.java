@@ -24,8 +24,8 @@ public class TaxService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<TaxResponseDTO> getTaxById(String id) {
-        return taxRepository.findById(id).map(this::convertToTaxResponseDTO);
+    public Optional<TaxResponseDTO> getTaxById(String name) {
+        return taxRepository.findByName(name).map(this::convertToTaxResponseDTO);
     }
 
     public Tax findTaxByName(String taxName) {
@@ -42,18 +42,21 @@ public class TaxService {
     }
 
 
-    public TaxResponseDTO updateTax(String id, UpdateTaxRequestDTO updatedTax) {
-        return taxRepository.findById(id)
+    public TaxResponseDTO updateTax(String name, UpdateTaxRequestDTO updatedTax) {
+        return taxRepository.findByName(name)
                 .map(tax -> {
                     tax.setName(updatedTax.getName());
                     tax.setRate(updatedTax.getRate());
                     return convertToTaxResponseDTO(taxRepository.save(tax));
                 })
-                .orElseThrow(() -> new RuntimeException("Tax not found: " + id));
+                .orElseThrow(() -> new RuntimeException("Tax not found: " + name));
     }
 
-    public void deleteTax(String id) {
-        taxRepository.deleteById(id);
+    public void deleteTax(String name) {
+        Optional<Tax> tax = taxRepository.findByName(name);
+        if (tax.isPresent()) {
+            taxRepository.deleteById(tax.get().getId());
+        }
     }
 
     private TaxResponseDTO convertToTaxResponseDTO(Tax tax) {
