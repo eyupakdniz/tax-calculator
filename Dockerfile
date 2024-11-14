@@ -1,9 +1,9 @@
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 
-WORKDIR /app
+ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
 
-COPY target/your-app.jar app.jar
+COPY ${JAR_FILE} application.jar
 
-EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "application.jar"]
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
